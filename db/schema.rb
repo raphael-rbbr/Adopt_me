@@ -25,11 +25,13 @@ ActiveRecord::Schema.define(version: 2022_05_07_193202) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "sender_id"
+    t.bigint "receiver_id"
     t.text "message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_messages_on_user_id"
+    t.index ["receiver_id"], name: "index_messages_on_receiver_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
 
   create_table "pets", force: :cascade do |t|
@@ -60,4 +62,8 @@ ActiveRecord::Schema.define(version: 2022_05_07_193202) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "adoptions", "pets"
+  add_foreign_key "adoptions", "users"
+  add_foreign_key "messages", "users", column: "receiver_id"
+  add_foreign_key "messages", "users", column: "sender_id"
 end
