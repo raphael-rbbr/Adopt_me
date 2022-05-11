@@ -1,7 +1,7 @@
 class Pet < ApplicationRecord
-  has_many :users, through: :adoption
+  has_many :adoptors, class_name: "User", foreign_key: "user_id", through: :adoption
+  belongs_to :user
 
-  # validates uniqueness: true
-  validates :name, :species, :vaccinated, :status, :age, presence: true
-  validates :description, presence: true, length: { minimum: 6 }
+  # validates :name, :species, :vaccinated, :status, :age, presence: true
+  # validates :description, presence: true, length: { minimum: 6 }
 end

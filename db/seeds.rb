@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Pet.destroy_all
+User.destroy_all
+
+dono = User.create(email: "dono@lewagon.com", password: "123456", zip_code: "12345-123")
+puts "dono created #{dono.id}"
+
+adotante = User.create(email: "adotante@lewagon.com", password: "123456", zip_code: "12345-123")
+puts "adotante created #{adotante.id}"
+
+pet = Pet.create(name: "pet", user_id: dono.id)
+puts "pet created #{pet.id}"
