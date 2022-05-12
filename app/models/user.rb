@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :pets_requested, class_name: "Pet", foreign_key: "user_id", through: :adoption
+  has_many :adoptions
+  has_many :pets_requested, through: :adoptions, source: :pet
   has_many :pets
   has_many :messages, class_name: "Message", foreign_key: "receiver_id"
   has_many :sent_messages, class_name: "Message", foreign_key: "sender_id"

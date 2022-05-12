@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+Adoption.destroy_all
 Pet.destroy_all
 User.destroy_all
 
@@ -17,3 +17,5 @@ puts "adotante created #{adotante.id}"
 
 pet = Pet.create(name: "pet", user_id: dono.id)
 puts "pet created #{pet.id}"
+
+adoption = Adoption.create(pet_id: pet.id, user_id: adotante.id)
