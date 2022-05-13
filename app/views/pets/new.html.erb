@@ -1,0 +1,13 @@
+<div class="new-lists">
+  <div class="new-list">
+    <h1>Create a new <strong>pet</strong> !</h1>
+    <%= simple_form_for [ @pet ] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :species %>
+    <%= f.input :vaccinated %>
+    <%= f.input :description %>
+    <%= f.input :age %>
+    <%= f.submit "Submit", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>

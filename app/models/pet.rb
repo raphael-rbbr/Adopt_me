@@ -1,5 +1,5 @@
 class Pet < ApplicationRecord
-  has_many :adoptions
+  has_many :adoptions, dependent: :destroy
   has_many :adoptors, through: :adoptions, source: :user
   belongs_to :user
 
