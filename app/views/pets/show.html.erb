@@ -1,0 +1,15 @@
+<div class="card-show-pet">
+  <%# <%= image_tag @movie.poster_url, class:"poster-img" %>
+  <div class="card-show-pet-text">
+    <h4><strong><%= @pet.name %> </h4>
+    <p><%= @pet.species %></p>
+    <p><%= @pet.description %></p>
+    <%= link_to 'Edit', edit_pet_path(@pet), class: "btn btn-success"  %>
+    <%= link_to "Delete",
+      pet_path(@pet),
+      method: :delete,
+      data: { confirm: "Are you sure?" },
+      class: "btn btn-danger"%></div>
+    </div>
+  </div>
+</div>
