@@ -1,3 +1,13 @@
+<div class="links-show-pet">
+  <%= link_to '< Return to search results', pets_path %>
+  <%= link_to 'Edit', edit_pet_path(@pet), class: "btn btn-success"  %>
+  <%= link_to 'Delete', pet_path(@pet),
+    method: :delete,
+    data: { confirm: "Are you sure?" },
+    class: "btn btn-danger" %>
+  </div>
+</div>
+
 <div class="card-show-pet">
   <%# <%= image_tag @movie.poster_url, class:"poster-img" %>
   <div class="card-show-pet-details">
@@ -16,14 +26,5 @@
   <div class="card-show-pet-health">
     <h3>Health Stats</h3>
     <p><%= @pet.gender == 'male' ? 'He is ' : 'She is ' %><%= @pet.vaccinated ? 'fully vaccinated' : 'not vaccinated yet' %> and <%= @pet.castrated ? '' : 'not' %> castrated</p>
-  </div>
-
-    <%= link_to 'Edit', edit_pet_path(@pet), class: "btn btn-success"  %>
-    <%= link_to "Delete",
-      pet_path(@pet),
-      method: :delete,
-      data: { confirm: "Are you sure?" },
-      class: "btn btn-danger"%></div>
-    </div>
   </div>
 </div>
