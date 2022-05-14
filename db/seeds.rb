@@ -12,6 +12,9 @@ Adoption.destroy_all
 Pet.destroy_all
 User.destroy_all
 
+pets = []
+users = []
+
 10.times do
   User.create(email: Faker::Internet.email,
               password: "123456",
@@ -20,12 +23,20 @@ User.destroy_all
               zip_code: "#{rand(20_000..28_999)}-#{rand(0..999).to_s.rjust(3,'0')}}",
               house_number: rand(1..1000),
               profile: "I'm #{rand(18..90)} years old, my job is #{Faker::Job.title} and I love #{Faker::Hobby.activity}")
-  puts "dono created #{User.last.id}"
-  Pet.create(name: Faker::Creature::Dog.name, user_id: User.last.id)
-  puts "pet created #{Pet.last.id}"
+  users << User.last
+  puts "user #{User.last.id} created"
+  Pet.create( name: Faker::Creature::Dog.name,
+              species: ['dog', 'cat', 'bird'].sample,
+              vaccinated: [true, false].sample,
+              description: "Sweet animal",
+              age: rand(0..14),
+              status: ['available', 'adopted'].sample,
+              user_id: User.last.id)
+  pets << Pet.last
+  puts "pet #{Pet.last.id} created"
 end
 
-# adotante = User.create(email: "adotante@lewagon.com", password: "123456", zip_code: "12345-123")
-# puts "adotante created #{adotante.id}"
-
-# adoption = Adoption.create(pet_id: pet.id, user_id: adotante.id)
+5.times do
+  Adoption.create(pet_id: pets.sample.id, user_id: users.sample.id)
+  puts "adoption #{Adoption.last.id} created"
+end
