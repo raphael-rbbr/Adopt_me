@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+require "open-uri"
 
 Adoption.destroy_all
 Pet.destroy_all
@@ -26,6 +27,7 @@ addresses = [
   "Rua Visconde de Pirajá, 89",
   "Rua da Glória, 250"
 ]
+
 
 
 10.times do
@@ -49,6 +51,8 @@ addresses = [
               gender: ['male', 'female'].sample,
               address: addresses.sample,
               castrated: [true, false].sample)
+  file = URI.open('https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZG9nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60')
+  Pet.last.photos.attach(io: file, filename: 'pet.png', content_type: 'image/png')
   pets << Pet.last
   puts "pet #{Pet.last.id} created"
 end

@@ -69,3 +69,4 @@ gem 'rspec-rails', group: [ :test ]
 gem 'rails-controller-testing', group: [ :test ]
 gem "geocoder"
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'cloudinary', '~> 1.16.0'

@@ -2,6 +2,7 @@ class Pet < ApplicationRecord
   has_many :adoptions, dependent: :destroy
   has_many :adoptors, through: :adoptions, source: :user
   belongs_to :user
+  has_many_attached :photos
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
