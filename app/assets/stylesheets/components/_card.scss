@@ -1,0 +1,65 @@
+.map-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.pets {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  flex-grow: 1;
+  text-align: center;
+  grid-gap: 16px;
+  padding: 16px;
+}
+
+/*Smallest device*/
+@media (min-width: 100px) and (max-width: 575px) {
+  .pets {
+    grid-template-columns: 1fr;
+  }
+  .map {
+    display: none;
+  }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .pets {
+    grid-template-columns: 1fr 1fr;
+  }
+  .map {
+    display: none;
+  }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 1200px) {
+  .pets {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .map {
+    display: block;
+  }
+}
+
+.map {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.pet-card {
+  display: flex;
+  height: 200px;
+  width: 90%;
+  margin: 4%;
+  padding: 2%;
+  background-color: hsl(0, 0%, 98%);
+  background-position: center;
+  background-size: cover;
+  justify-content: center;
+  align-items: flex-end;
+  border-radius: 6px;
+  box-shadow: 2px 2px 3px rgba(128, 128, 128, 0.137);
+}

@@ -1,0 +1,10 @@
+<div class="pet-group-item">
+  <%= cl_image_tag pet.photos.first.key, height: 200, width: 200, crop: :fill %>
+    <div class="pet-card-text">
+      <h4><strong><%= pet.name %></i></strong></h4>
+      <p class="overflow-ellipsis"><%= pet.description %></p>
+      <div class="show-see-more">
+        <%= link_to "See more", pet_path(pet) %>
+      </div>
+    </div>
+</div>
