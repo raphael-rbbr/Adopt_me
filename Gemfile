@@ -67,5 +67,5 @@ gem 'bootstrap', '~> 5.0.2'
 gem 'pundit'
 gem 'rspec-rails', group: [ :test ]
 gem 'rails-controller-testing', group: [ :test ]
-
 gem "geocoder"
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
