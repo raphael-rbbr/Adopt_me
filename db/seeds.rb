@@ -28,10 +28,13 @@ users = []
   Pet.create( name: Faker::Creature::Dog.name,
               species: ['dog', 'cat', 'bird'].sample,
               vaccinated: [true, false].sample,
-              description: "Sweet animal",
+              description: "It's a lovely animal with extremely friendly attitude, loves children and it is often very quiet",
               age: rand(0..14),
               status: ['available', 'adopted'].sample,
-              user_id: User.last.id)
+              user_id: User.last.id,
+              history: "It was found on a plastic bag out on a garbage can on a rainy day. Today we are looking for a new home to this sweet animal",
+              gender: ['male', 'female'].sample,
+              castrated: [true, false].sample)
   pets << Pet.last
   puts "pet #{Pet.last.id} created"
 end
