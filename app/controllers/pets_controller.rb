@@ -18,12 +18,13 @@ class PetsController < ApplicationController
 
   def create
     @pet = Pet.new(pet_params)
+    @pet.user = current_user
+    authorize @pet
     if @pet.save
       redirect_to pet_path(@pet)
     else
       render :new
     end
-    authorize @pet
   end
 
   def destroy
