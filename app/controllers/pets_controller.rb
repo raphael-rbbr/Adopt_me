@@ -36,6 +36,17 @@ class PetsController < ApplicationController
     end
   end
 
+  def edit
+    @pet = Pet.find(params[:id])
+  end
+
+  def update
+    @pet = Pet.find(params[:id])
+    @pet.update(pet_params)
+
+    redirect_to pet_path(@pet)
+  end
+
   def destroy
     set_pet
     @pet.destroy
@@ -50,6 +61,6 @@ class PetsController < ApplicationController
   end
 
   def pet_params
-    params.require(:pet).permit(:name, :species, :vaccinated, :description, :age, photos: [])
+    params.require(:pet).permit(:name, :address, :species, :vaccinated, :description, :age, :history, :castrated, photos: [])
   end
 end

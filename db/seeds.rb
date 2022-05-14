@@ -28,9 +28,7 @@ addresses = [
   "Rua da Glória, 250"
 ]
 
-
-
-10.times do
+5.times do |i|
   User.create(email: Faker::Internet.email,
               password: "123456",
               first_name: Faker::Name.first_name,
@@ -51,13 +49,14 @@ addresses = [
               gender: ['male', 'female'].sample,
               address: addresses.sample,
               castrated: [true, false].sample)
-  file = URI.open('https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZG9nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60')
+  file = URI.open(Unsplash::Photo.search(Pet.last.species)[i].urls.raw)
+  # file = URI.open('https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZG9nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60')
   Pet.last.photos.attach(io: file, filename: 'pet.png', content_type: 'image/png')
   pets << Pet.last
   puts "pet #{Pet.last.id} created"
 end
 
-5.times do
+3.times do
   Adoption.create(pet_id: pets.sample.id, user_id: users.sample.id)
   puts "adoption #{Adoption.last.id} created"
 end
