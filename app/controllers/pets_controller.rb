@@ -1,9 +1,18 @@
 class PetsController < ApplicationController
-  before_action :set_pet, only: [:show, :destroy]
+  before_action :set_pet, only: [ :show, :destroy ]
 
   def index
     @pets = policy_scope(Pet).order(created_at: :desc)
     authorize @pets
+
+    @markers = @pets.geocoded.map do |pet|
+      {
+        lat: pet.latitude,
+        lng: pet.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { pet: pet }),
+        # image_url: helpers.asset_url("REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS")
+      }
+    end
   end
 
   def show
@@ -33,7 +42,6 @@ class PetsController < ApplicationController
     redirect_to pets_path
     authorize @pet
   end
-
 
   private
 
