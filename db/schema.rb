@@ -72,12 +72,12 @@ ActiveRecord::Schema.define(version: 2022_05_14_155427) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
-    t.text "history"
-    t.boolean "castrated"
-    t.string "gender"
     t.float "latitude"
     t.float "longitude"
     t.string "address"
+    t.text "history"
+    t.boolean "castrated"
+    t.string "gender"
     t.index ["user_id"], name: "index_pets_on_user_id"
   end
 

@@ -1,0 +1,19 @@
+<div class="new-lists">
+  <div class="new-list">
+    <h1>Edit <strong><%= @pet.name %>'s</strong> profile!</h1>
+    <%= simple_form_for [ @pet ] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :species %>
+    <%= f.input :age %>
+    <%= f.input :vaccinated %>
+    <%= f.input :castrated %>
+    <%= f.input :address,
+                input_html: { data: { geocoder_target: "address" }, class: "d-none" },
+                wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
+    <%= f.input :description %>
+    <%= f.input :history %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.submit "Submit", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>
