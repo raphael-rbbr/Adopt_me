@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+require "open-uri"
 
 Adoption.destroy_all
 Pet.destroy_all
@@ -14,6 +15,7 @@ User.destroy_all
 
 pets = []
 users = []
+
 
 10.times do
   User.create(email: Faker::Internet.email,
@@ -35,6 +37,8 @@ users = []
               history: "It was found on a plastic bag out on a garbage can on a rainy day. Today we are looking for a new home to this sweet animal",
               gender: ['male', 'female'].sample,
               castrated: [true, false].sample)
+  file = URI.open('https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZG9nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60')
+  Pet.last.photos.attach(io: file, filename: 'pet.png', content_type: 'image/png')
   pets << Pet.last
   puts "pet #{Pet.last.id} created"
 end
