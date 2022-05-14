@@ -1,9 +1,23 @@
 <div class="card-show-pet">
   <%# <%= image_tag @movie.poster_url, class:"poster-img" %>
-  <div class="card-show-pet-text">
-    <h4><strong><%= @pet.name %> </h4>
-    <p><%= @pet.species %></p>
+  <div class="card-show-pet-details">
+    <h2><strong><%= @pet.name %> </h2>
+    <h3><%= @pet.age %> years old</h3>
+    <p><%= @pet.gender %> - <%= @pet.species %></p>
     <p><%= @pet.description %></p>
+    <button type="button" class="btn btn-primary">Message</button>
+  </div>
+
+  <div class="card-show-pet-history">
+    <h3>History</h3>
+    <p><%= @pet.history %></p>
+  </div>
+
+  <div class="card-show-pet-health">
+    <h3>Health Stats</h3>
+    <p><%= @pet.gender == 'male' ? 'He is ' : 'She is ' %><%= @pet.vaccinated ? 'fully vaccinated' : 'not vaccinated yet' %> and <%= @pet.castrated ? '' : 'not' %> castrated</p>
+  </div>
+
     <%= link_to 'Edit', edit_pet_path(@pet), class: "btn btn-success"  %>
     <%= link_to "Delete",
       pet_path(@pet),
