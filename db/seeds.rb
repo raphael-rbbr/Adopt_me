@@ -28,7 +28,7 @@ addresses = [
   "Rua da Glória, 250"
 ]
 
-5.times do |i|
+10.times do |i|
   User.create(email: Faker::Internet.email,
               password: "123456",
               first_name: Faker::Name.first_name,
