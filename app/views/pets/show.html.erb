@@ -9,7 +9,7 @@
 </div>
 
 <div class="card-show-pet">
-  <%# <%= cl_image_tag @article.photo.key, height: 300, width: 300, crop: :fill %> %>
+  <%= cl_image_tag @pet.photos.first.key, height: 300, width: 300, crop: :fill %>
   <div class="card-show-pet-details">
     <h2><strong><%= @pet.name %> </h2>
     <h3><%= @pet.age %> years old</h3>

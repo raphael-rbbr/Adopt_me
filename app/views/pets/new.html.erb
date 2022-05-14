@@ -4,9 +4,11 @@
     <%= simple_form_for [ @pet ] do |f| %>
     <%= f.input :name %>
     <%= f.input :species %>
-    <%= f.input :vaccinated %>
-    <%= f.input :description %>
     <%= f.input :age %>
+    <%= f.input :vaccinated %>
+    <%= f.input :castrated %>
+    <%= f.input :description %>
+    <%= f.input :history %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.submit "Submit", class: "btn btn-success" %>
     <% end %>
