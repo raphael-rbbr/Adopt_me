@@ -72,6 +72,9 @@ ActiveRecord::Schema.define(version: 2022_05_14_155427) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
     t.text "history"
     t.boolean "castrated"
     t.string "gender"

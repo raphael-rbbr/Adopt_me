@@ -15,6 +15,19 @@ User.destroy_all
 
 pets = []
 users = []
+addresses = [
+  "Avenida Mem de Sá, 35",
+  "Rua Primeiro de Março, 100",
+  "Avenida Portugal, 150",
+  "Avenida Atlântica, 200",
+  "Avenida Vieira Souto, 300",
+  "Avenida Rodrigues Alves, 350",
+  "Avenida Rio Branco, 55",
+  "Avenida Epitácio Pessoa, 10",
+  "Rua Visconde de Pirajá, 89",
+  "Rua da Glória, 250"
+]
+
 
 
 10.times do
@@ -22,7 +35,7 @@ users = []
               password: "123456",
               first_name: Faker::Name.first_name,
               last_name: Faker::Name.last_name,
-              zip_code: "#{rand(20_000..28_999)}-#{rand(0..999).to_s.rjust(3,'0')}}",
+              zip_code: "#{rand(20_000..28_999)}-#{rand(0..999).to_s.rjust(3, '0')}}",
               house_number: rand(1..1000),
               profile: "I'm #{rand(18..90)} years old, my job is #{Faker::Job.title} and I love #{Faker::Hobby.activity}")
   users << User.last
@@ -36,6 +49,7 @@ users = []
               user_id: User.last.id,
               history: "It was found on a plastic bag out on a garbage can on a rainy day. Today we are looking for a new home to this sweet animal",
               gender: ['male', 'female'].sample,
+              address: addresses.sample,
               castrated: [true, false].sample)
   file = URI.open('https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZG9nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60')
   Pet.last.photos.attach(io: file, filename: 'pet.png', content_type: 'image/png')

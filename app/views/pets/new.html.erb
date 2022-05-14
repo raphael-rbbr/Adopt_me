@@ -7,6 +7,9 @@
     <%= f.input :age %>
     <%= f.input :vaccinated %>
     <%= f.input :castrated %>
+    <%= f.input :address,
+      input_html: { data: { geocoder_target: "address" } },
+      wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } }, input_html: { data: { "..." }, class: "d-none" } %>
     <%= f.input :description %>
     <%= f.input :history %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
