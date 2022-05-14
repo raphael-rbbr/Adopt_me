@@ -38,13 +38,14 @@ class PetsController < ApplicationController
 
   def edit
     @pet = Pet.find(params[:id])
+    authorize @pet
   end
 
   def update
     @pet = Pet.find(params[:id])
     @pet.update(pet_params)
-
     redirect_to pet_path(@pet)
+    authorize @pet
   end
 
   def destroy
