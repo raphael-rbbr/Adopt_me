@@ -1,0 +1,35 @@
+  <div class= "container">
+  <h1>User show page</h1>
+  <%= link_to ' Return to search results', pets_path %>
+  <br>
+  <%= link_to "edit my profile", edit_user_registration_path %>
+
+
+  <div class="card-show-user row">
+    <div class="card-show-user-image col">
+      <%# <%= cl_image_tag @pet.photos.first.key, height: 200, width: 200, crop: :fill %>
+    </div>
+
+    <div class="card-show-user-details col">
+      <h1><%= @user.first_name %> </h1>
+      <h1><%= @user.last_name %> </h1>
+      <h3><%= @user.zip_code %></h3>
+      <p><%= @user.house_number %></p>
+    </div>
+
+    <div class="card-show-user-history col">
+      <h3>Profile</h3>
+      <p><%= @user.profile %></p>
+    </div>
+  </div>
+    <div>
+      <h1>My pets</h1>
+      <ul>
+         <%@user.pets.each do |pet| %>
+          <li><%= link_to pet.name, pet_path(pet.id)%></li>
+         <% end %>
+      </ul>
+    </div>
+
+
+</div>
