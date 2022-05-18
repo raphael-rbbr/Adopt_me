@@ -1,24 +1,18 @@
 <div class="container">
-<div class="container py-5">
-  <div class="d-flex align-items-center justify-content-between mb-3">
-    <h3 class="mb-0">Pets</h3>
-    <%= link_to "New Pet", new_pet_path, class: "btn btn-success" %>
-  </div>
-
-  <div class="map-card">
-
-    <div class="pets">
-      <% @my_pets.each do |pet| %>
-        <%= render '/pets/pet', pet: pet %>
-      <% end %>
+  <div class="container py-5">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+      <h3 class="mb-0">Pets</h3>
+      <%= link_to "New Pet", new_pet_path, class: "btn btn-success" %>
     </div>
 
-    <div class="map" style="width: 100%; height: 600px;"
-      data-controller="mapbox"
-      data-mapbox-markers-value="<%= @markers.to_json %>"
-      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
+    <div class="pets-card">
 
+      <div class="pets">
+        <% @my_pets.each do |pet| %>
+          <%= render '/pets/pet', pet: pet %>
+        <% end %>
+      </div>
+
+    </div>
   </div>
-</div>
 </div>
