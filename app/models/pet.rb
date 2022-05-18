@@ -9,6 +9,9 @@ class Pet < ApplicationRecord
 
   validates :address, presence: true
 
+  include PgSearch::Model
+  pg_search_scope :search_by_address, against: [:address]
+
   # validates :name, :species, :vaccinated, :status, :age, presence: true
   # validates :description, presence: true, length: { minimum: 6 }
 end
