@@ -1,10 +1,14 @@
 <div class="links-show-pet">
   <%= link_to '< Return to search results', pets_path %>
-  <%= link_to 'Edit', edit_pet_path(@pet), class: "btn btn-success"  %>
+  <% if policy(@pet).edit? %>
+  <%= link_to "Edit", edit_pet_path(@pet), class: "btn btn-success" %>
+  <% end %>
+  <% if policy(@pet).destroy? %>
   <%= link_to 'Delete', pet_path(@pet),
     method: :delete,
     data: { confirm: "Are you sure?" },
     class: "btn btn-danger" %>
+  <% end %>
   </div>
 </div>
 

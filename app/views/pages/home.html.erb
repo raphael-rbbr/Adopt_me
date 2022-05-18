@@ -1,5 +1,5 @@
 </div>
-<div class="banner-wrapper">
+<div class="banner-wrapper mb-4">
   <div class="banner">
     <div class="banner-container">
       <h1>Adopt.Me</h1>
@@ -7,11 +7,12 @@
     </div>
   </div>
 </div>
-<div class="search_input text-center my-5">
+
+<div class="search_input text-center mb-4">
   <div class="search_box">
-  <input type="text" placeholder="Search...">
+    <%= form_tag(pets_path, method: "get") do %>
+    <%= text_field_tag :query, nil, placeholder: "Type a Location...", class: "form-control mb-4" %>
+    <%= submit_tag "Search", style: "btn btn-primary" %>
+    <% end %>
   </div>
-</div>
-<div class="button text-center my-1">
-  <p>Isso aqui vai ser um botão.</p>
 </div>

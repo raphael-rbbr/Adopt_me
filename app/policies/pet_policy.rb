@@ -28,6 +28,5 @@ class PetPolicy < ApplicationPolicy
 
   def my_pets?
     true
-    #nao consegui pensar em um teste logico que funcionasse, ai deixei como true
   end
 end
