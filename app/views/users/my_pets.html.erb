@@ -2,14 +2,17 @@
   <div class="container py-5">
     <div class="d-flex align-items-center justify-content-between mb-3">
       <h3 class="mb-0">Pets</h3>
-      <%= link_to "New Pet", new_pet_path, class: "btn btn-success" %>
+      <%= link_to "New Pet", new_pet_path,
+      class: "btn-new-pet" %>
     </div>
 
     <div class="pets-card">
 
-      <div class="pets">
+      <div class="pets-index">
         <% @my_pets.each do |pet| %>
-          <%= render '/pets/pet', pet: pet %>
+          <div class="list-group-item">
+            <%= render '/pets/pet', pet: pet %>
+          </div>
         <% end %>
       </div>
 
