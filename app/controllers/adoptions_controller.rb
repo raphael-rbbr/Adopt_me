@@ -7,6 +7,8 @@ class AdoptionsController < ApplicationController
   def new
     @adoption = Adoption.new
     authorize @adoption
+    authorize @pet
+
   end
 
   def create
@@ -21,6 +23,7 @@ class AdoptionsController < ApplicationController
     end
     authorize @adoption
     authorize @pet
+
   end
 
   def destroy
