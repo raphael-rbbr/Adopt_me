@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :pets
   has_many :messages, class_name: "Message", foreign_key: "receiver_id"
   has_many :sent_messages, class_name: "Message", foreign_key: "sender_id"
+  has_one_attached :photo
 
   # validates :first_name, :last_name, :house_number, presence: true
   # validates :zip_code, presence: true, length: { is: 9 }, format: { with: /"^\d{5}-\d{3}$"/, message: "enter a valid zip code" }
