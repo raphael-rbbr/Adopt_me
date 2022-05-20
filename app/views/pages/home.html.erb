@@ -12,7 +12,8 @@
   <div class="search_box">
     <%= form_tag(pets_path, method: "get") do %>
     <%= text_field_tag :query, nil, placeholder: "Type a Location...", class: "form-control mb-4" %>
-    <%= submit_tag "Search", style: "btn btn-primary" %>
+    <%= submit_tag "Search",
+    class: "btn-search" %>
     <% end %>
   </div>
 </div>
