@@ -30,8 +30,7 @@
     <h3><%= @pet.age %> years old</h3>
     <p><%= @pet.gender %> - <%= @pet.species %></p>
     <p><%= @pet.description %></p>
-    <%= button_to "Adopt me!", pet_adoptions_path(@pet), method: :create,
-    class: "btn-adoption" %>
+    <%= button_to "Adopt me!", pet_adoptions_path(@pet), method: :create, data: { confirm: "You are requesting the adoption of #{@pet.name}" }, class: "btn-adoption" %>
   </div>
 
   <div class="card-show-pet-history col">

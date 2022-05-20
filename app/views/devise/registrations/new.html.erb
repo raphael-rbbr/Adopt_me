@@ -12,6 +12,19 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "Last Name" }%>
+    <%= f.input :zip_code,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "zip code" }%>
+    <%= f.input :house_number,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "house number" }%>
+    <%= f.input :profile,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "profile" }%>
+    <%= f.input :profile_photo, as: :file %>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -25,7 +38,7 @@
                 input_html: { autocomplete: "new-password" } %>
   </div>
 
-  <div class="form-actions">
+  <div class="form-actions btn btn-primary">
     <%= f.button :submit, "Sign up" %>
   </div>
 <% end %>
