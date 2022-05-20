@@ -37,7 +37,7 @@ User.create(email: "nicholas@gmail.com",
             profile: "I'm #{rand(18..90)} years old, my job is #{Faker::Job.title} and I love #{Faker::Hobby.activity}")
 
 file = URI.open('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXT7i2n52TPAZJiV0n08h6D3CWLIPsvWuVuQ&usqp=CAU')
-User.last.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
+User.last.profile_photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
 
 
 10.times do |i|
