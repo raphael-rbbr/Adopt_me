@@ -1,0 +1,25 @@
+.container-show-user{
+  display: flex;
+  justify-content: center;
+}
+
+.card-show-user{
+  display: flex;
+  justify-content: center;
+  width: 1000px;
+  background-color: white;
+  box-shadow: 2px 2px 5px darkgrey;
+  align-items: center;
+}
+
+.user-photo{
+  justify-content: center;
+  flex: 0.4;
+  padding: 40px 0px 40px 60px;
+}
+
+.user-details{
+  justify-content: center;
+  flex: 0.6;
+  padding: 40px 60px 40px 0px;
+}

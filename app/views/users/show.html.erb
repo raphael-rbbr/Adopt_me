@@ -1,38 +1,35 @@
-  <div class= "container">
-  <h1>User show page</h1>
-  <%= link_to ' Return to search results', pets_path %>
-  <br>
-  <%= link_to "edit my profile", edit_user_registration_path %>
+<div class="return-link">
+  <%= link_to '< Back to search results', pets_path %>
+</div>
 
-
-  <div class="card-show-user row">
-    <div class="card-show-user-image col">
-      <%# <%= cl_image_tag @pet.photos.first.key, height: 200, width: 200, crop: :fill %>
+<div class="container-show-user">
+  <div class="card-show-user">
+    <div class="user-photo">
+      <% if current_user.profile_photo.valid? %>
+        <%= cl_image_tag current_user.profile_photo.key, height: 300, width: 300, radius: 150, crop: :fill %>
+     <% else %>
+        <%= image_tag "avatar.png", height: 300, width: 300, radius: 150, crop: :fill %>
+     <% end %>
     </div>
-
-    <div class="card-show-user-details col">
-      <h1><%= @user.first_name %> </h1>
-      <h1><%= @user.last_name %> </h1>
-      <h3><%= @user.zip_code %></h3>
-      <p><%= @user.house_number %></p>
-    </div>
-
-    <div class="card-show-user-history col">
-      <h3>Profile</h3>
-      <p><%= @user.profile %></p>
+    <div class="user-details">
+      <h1>Profile</h1>
+     <p><%= @user.profile %></p>
+      <h1><%= @user.first_name %> <%= @user.last_name %> </h1>
+      <h5><%= @user.email %></h5>
+     <p><%= @user.zip_code %></p>
+     <%= link_to "Edit", edit_user_registration_path %>
     </div>
   </div>
-    <div>
-      <h1>My pets</h1>
-         <%=render "my_pets_for_adoption"%>
-    </div>
+</div>
 
-    <div>
-      <h1>My adoptions</h1>
-      <% if @adoptions.blank? %>
-        You don`t have any adoption requested
-      <% else %>
-       <%=render "my_adoptions" %>
-      <% end %>
-    </div>
+<div class="card-show-user-pets">
+  <%=render "my_pets_for_adoption"%>
+</div>
+
+<div class= "card-show-user-adoptions">
+  <% if @adoptions.blank? %>
+    You have no adoption requests.
+  <% else %>
+    <%=render "my_adoptions" %>
+  <% end %>
 </div>
