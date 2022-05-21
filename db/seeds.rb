@@ -39,7 +39,7 @@ puts "User test created: #{User.last.email}, password 123456"
 file = URI.open('https://images.unsplash.com/flagged/photo-1595514191830-3e96a518989b?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687')
 user.profile_photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
 
-9.times do |i|
+6.times do |i|
   User.create!(email: Faker::Internet.email,
                password: "123456",
                first_name: Faker::Name.first_name,
@@ -61,8 +61,14 @@ user.profile_photo.attach(io: file, filename: 'user.png', content_type: 'image/p
               gender: ['male', 'female'].sample,
               address: addresses.sample,
               castrated: [true, false].sample)
-  file = URI.open(Unsplash::Photo.search(Pet.last.species)[i].urls.regular)
-  Pet.last.photos.attach(io: file, filename: 'pet.png', content_type: 'image/png')
+  file1 = URI.open(Unsplash::Photo.search(Pet.last.species)[i].urls.regular)
+  file2 = URI.open(Unsplash::Photo.search(Pet.last.species)[i + 1].urls.regular)
+  file3 = URI.open(Unsplash::Photo.search(Pet.last.species)[i + 2].urls.regular)
+
+  Pet.last.photos.attach(io: file1, filename: 'pet.png', content_type: 'image/png')
+  Pet.last.photos.attach(io: file2, filename: 'pet.png', content_type: 'image/png')
+  Pet.last.photos.attach(io: file3, filename: 'pet.png', content_type: 'image/png')
+
   pets << Pet.last
   puts "pet #{Pet.last.id} created"
 end
