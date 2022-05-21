@@ -10,7 +10,7 @@
 
       <div class="pets-index">
         <% @my_pets.each do |pet| %>
-          <%if pet.status == "available" %>
+          <%if pet.status != "adopted" %>
             <div class="list-group-item">
               <%= render '/pets/pet', pet: pet %>
               <div>
