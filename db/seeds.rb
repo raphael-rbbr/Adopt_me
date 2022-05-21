@@ -28,18 +28,18 @@ addresses = [
   "Rua da Glória, 250"
 ]
 
-User.create!(email: "nicholas@gmail.com",
-             password: "123456",
-             first_name: "Nicholas",
-             last_name: "Cage",
-             zip_code: "22071-055",
-             house_number: "496",
-             profile: "I'm #{rand(18..90)} years old, my job is #{Faker::Job.title} and I love #{Faker::Hobby.activity}")
+user = User.create!(email: "nicholas@gmail.com",
+                    password: "123456",
+                    first_name: "Nicholas",
+                    last_name: "Cage",
+                    zip_code: "22071-055",
+                    house_number: "496",
+                    profile: "I'm #{rand(18..90)} years old, my job is #{Faker::Job.title} and I love #{Faker::Hobby.activity}")
 puts "User test created: #{User.last.email}, password 123456"
-file = URI.open('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXT7i2n52TPAZJiV0n08h6D3CWLIPsvWuVuQ&usqp=CAU')
-User.last.profile_photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
+file = URI.open('https://images.unsplash.com/flagged/photo-1595514191830-3e96a518989b?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687')
+user.profile_photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
 
-10.times do |i|
+9.times do |i|
   User.create!(email: Faker::Internet.email,
                password: "123456",
                first_name: Faker::Name.first_name,
