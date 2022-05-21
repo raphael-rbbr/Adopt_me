@@ -30,8 +30,18 @@
     <h3><%= @pet.age %> years old</h3>
     <p><%= @pet.gender %> - <%= @pet.species %></p>
     <p><%= @pet.description %></p>
+    <%# <% if policy(Adoption).create? %>
+    <% unless current_user.pets.include?(@pet) %>
     <%= button_to "Adopt me!", pet_adoptions_path(@pet), method: :create, data: { confirm: "You are requesting the adoption of #{@pet.name}" }, class: "btn-adoption" %>
+    <% end %>
   </div>
+
+    <% if policy(@pet).destroy? %>
+    <%= link_to 'Delete', pet_path(@pet),
+      method: :delete,
+      data: { confirm: "Are you sure?" },
+      class: "btn btn-danger" %>
+    <% end %>
 
   <div class="card-show-pet-history col">
     <h3>History</h3>
