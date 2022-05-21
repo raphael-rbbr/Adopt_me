@@ -9,19 +9,19 @@
     <div class="pets-card">
 
       <div class="pets-index">
-        <% @my_pets.each do |pet| %>
-          <%if pet.status != "adopted" %>
-            <div class="list-group-item">
-              <%= render '/pets/pet', pet: pet %>
-              <div>
-              <% pet.adoptors.each do |adoptor| %>
-                <p>This pet was requested by <%= adoptor.first_name%></p>
-              <% end %>
-              </div>
-            </div>
-            <%= link_to 'Confirm adoption', adoption_confirmed_path(pet), method: :patch, data: { confirm: "Give this pet a new home?" }, class: "btn btn-primary" %>
+        <div class="list-group-item">
+          <% @my_pets.each do |pet| %>
+            <%if pet.status != "adopted" %>
+                <%= render '/pets/pet', pet: pet %>
+                <div>
+                <% pet.adoptors.each do |adoptor| %>
+                  <p>This pet was requested by <%= adoptor.first_name%></p>
+                  <%= link_to 'Confirm adoption', adoption_confirmed_path(pet), method: :patch, data: { confirm: "Give this pet a new home?" }, class: "btn btn-primary" %>
+                <% end %>
+                </div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
 
     </div>
