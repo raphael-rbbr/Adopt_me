@@ -1,7 +1,7 @@
 class AdoptionsController < ApplicationController
-  # before_action :set_adoption
-  before_action :set_pet
-  before_action :set_user
+  before_action :set_adoption, except: [:new, :create]
+  before_action :set_pet, except: [:destroy]
+  before_action :set_user, except: [:new, :create]
 
 
   def new
@@ -23,7 +23,6 @@ class AdoptionsController < ApplicationController
     end
     authorize @adoption
     authorize @pet
-
   end
 
   def destroy

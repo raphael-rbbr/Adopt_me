@@ -53,6 +53,14 @@ class PetsController < ApplicationController
     authorize @pet
   end
 
+  def pet_adopted
+    @pet = Pet.find(params[:id])
+    @pet.status = "adopted"
+    @pet.save
+    redirect_to pets_path
+    authorize @pet
+  end
+
   def destroy
     set_pet
     @pet.destroy

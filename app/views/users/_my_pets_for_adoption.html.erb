@@ -10,14 +10,17 @@
 
       <div class="pets-index">
         <% @my_pets.each do |pet| %>
-          <div class="list-group-item">
-            <%= render '/pets/pet', pet: pet %>
-            <div>
-             <% pet.adoptors.each do |adoptor| %>
-              <p>This pet was requested by <%= adoptor.first_name%></p>
-            <% end %>
+          <%if pet.status == "available" %>
+            <div class="list-group-item">
+              <%= render '/pets/pet', pet: pet %>
+              <div>
+              <% pet.adoptors.each do |adoptor| %>
+                <p>This pet was requested by <%= adoptor.first_name%></p>
+              <% end %>
+              </div>
             </div>
-          </div>
+            <%= link_to 'Confirm adoption', adoption_confirmed_path(pet), method: :patch, data: { confirm: "Give this pet a new home?" }, class: "btn btn-primary" %>
+          <% end %>
         <% end %>
       </div>
 

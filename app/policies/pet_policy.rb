@@ -26,7 +26,7 @@ class PetPolicy < ApplicationPolicy
     record.user == user
   end
 
-  def my_pets?
+  def pet_adopted?
     true
   end
 end
