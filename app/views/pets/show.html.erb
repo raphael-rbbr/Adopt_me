@@ -48,13 +48,11 @@
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
 
-<% image1 = cl_image_tag @pet.photos.first.key, height: 300, width: 400, crop: :fill %>
-
 <div id="carouselControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-    <%# <img class="d-block w-100" src="avatar.png" alt="First slide"> %>
-      <img class="d-block w-100" src="https://images.unsplash.com/photo-1653087978678-9f7326bead3a?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735" alt="First slide">
+      <%= cl_image_tag @pet.photos.first.key, height: 300, width: 400, crop: :fill %>
+      <%# <img  class="d-block w-100" src="https://images.unsplash.com/photo-1653087978678-9f7326bead3a?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735" alt="First slide"> %>
     </div>
     <%# <div class="carousel-item">
       <img class="d-block w-100" src="..." alt="Second slide">
