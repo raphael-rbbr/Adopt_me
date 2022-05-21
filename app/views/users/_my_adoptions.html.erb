@@ -4,14 +4,16 @@
       <h3 class="mb-0">Adoptions requests</h3>
     </div>
      <% @adoptions.each do |adoption|  %>
-    <div class="pets-card">
-      <div class="pets-index">
-          <div class="list-group-item">
-          <div class= "pets-card">
-            <%= render '/pets/pet', pet: adoption.pet  %>
-            <%= link_to 'Cancel adoption', adoption_path(adoption),  method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-              <p>Just wainting for <%= adoption.pet.user.first_name%> <%= adoption.pet.user.last_name%> to give you a call!</p>
-          </div>
+      <%if adoption.pet.status != "adopted" %>
+        <div class="pets-card">
+         <div class="pets-index">
+            <div class="list-group-item">
+            <div class= "pets-card">
+              <%= render '/pets/pet', pet: adoption.pet  %>
+              <%= link_to 'Cancel adoption', adoption_path(adoption),  method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+                <p>Just wainting for <%= adoption.pet.user.first_name%> <%= adoption.pet.user.last_name%> to give you a call!</p>
+            </div>
+          <% end %>
         <% end %>
         </div>
       </div>

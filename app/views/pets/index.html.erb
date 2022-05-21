@@ -9,9 +9,11 @@
 
     <div class="pets-index">
       <% @pets.each do |pet| %>
-        <div class="list-group-item">
-          <%= render '/pets/pet', pet: pet %>
-        </div>
+        <%if pet.status != "adopted" %>
+          <div class="list-group-item">
+            <%= render '/pets/pet', pet: pet %>
+          </div>
+        <% end %>
       <% end %>
     </div>
 
