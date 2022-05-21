@@ -1,8 +1,7 @@
 .return-link {
   padding: 20px 0;
 }
-
-.card-show-header {
+.card-show-pet-header {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -14,40 +13,33 @@
   margin-right: calc(-.5 * var(--bs-gutter-x));
   margin-left: calc(-.5 * var(--bs-gutter-x));
 }
-
 .card-show-pet {
   display: flex;
   flex: 0.5;
   align-items: center;
   background-color: white;
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px darkgrey;
 }
-
 .pet-card-image {
   padding: 0 20px;
 }
-
 .pet-card-info {
-  //flex: 0.5;
   padding: 20px;
 }
-
 .card-show-pet-information{
   display: flex;
   flex: 0.5;
   column-gap: 20px;
 }
-
 .pet-history {
   flex: 0.5;
   padding: 20px;
   background-color: white;
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px darkgrey;
 }
-
 .pet-health{
   flex: 0.5;
   padding: 20px;
   background-color: white;
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px darkgrey;
 }

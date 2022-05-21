@@ -1,6 +1,6 @@
 <div class="links-show-pet">
   <div class="return-link">
-    <%= link_to '< Return to search results', pets_path %>
+    <%= link_to '< Back to search results', pets_path %>
   </div>
 
   <div>
@@ -16,12 +16,12 @@
   </div>
 </div>
 
-<div class="card-show-header">
+<div class="card-show-pet-header">
   <div class="card-show-pet">
     <div class="pet-card-image">
       <%= cl_image_tag @pet.photos.first.key,
-         height: 300,
-          width: 300,
+         height: 270,
+          width: 270,
           crop: :fill,
          class: "show-pet-image" %>
     </div>
