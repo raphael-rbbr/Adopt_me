@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="container py-5">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+      <h3 class="mb-0">Adoptions requests</h3>
+    </div>
+    <div class="pets-card">
+
+      <div class="pets-index">
+        <% @adoptions.each do |adoption|  %>
+          <div class="list-group-item">
+            <%= render '/pets/pet', pet: adoption.pet  %>
+            <div>
+              <p>You want to give <%= adoption.pet.name%> a home!</p>
+              <p>Just wainting for <%= adoption.pet.user.first_name%> <%= adoption.pet.user.last_name%> to give you a call!</p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
