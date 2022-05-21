@@ -1,5 +1,5 @@
 <div class="links-show-pet">
-  <div>
+  <div class="return-link">
     <%= link_to '< Return to search results', pets_path %>
   </div>
 
@@ -16,31 +16,32 @@
   </div>
 </div>
 
-<div class="card-show-pet row">
-  <div class="card-show-pet-image col">
-    <%= cl_image_tag @pet.photos.first.key,
-        height: 200,
-        width: 200,
-        crop: :fill,
-        class: "show-pet-image" %>
+<div class="card-show-header">
+  <div class="card-show-pet">
+    <div class="pet-card-image">
+      <%= cl_image_tag @pet.photos.first.key,
+         height: 300,
+          width: 300,
+          crop: :fill,
+         class: "show-pet-image" %>
+    </div>
+    <div class="pet-card-info">
+      <h1><%= @pet.name %> </h1>
+      <h3><%= @pet.age %> years old</h3>
+      <p><%= @pet.gender %> - <%= @pet.species %></p>
+      <p><%= @pet.description %></p>
+      <%= button_to "Adopt me!", pet_adoptions_path(@pet), method: :create, data: { confirm: "You are requesting the adoption of #{@pet.name}" }, class: "btn-adoption" %>
+    </div>
   </div>
-
-  <div class="card-show-pet-details col">
-    <h1><%= @pet.name %> </h1>
-    <h3><%= @pet.age %> years old</h3>
-    <p><%= @pet.gender %> - <%= @pet.species %></p>
-    <p><%= @pet.description %></p>
-    <%= button_to "Adopt me!", pet_adoptions_path(@pet), method: :create, data: { confirm: "You are requesting the adoption of #{@pet.name}" }, class: "btn-adoption" %>
-  </div>
-
-  <div class="card-show-pet-history col">
-    <h3>History</h3>
-    <p><%= @pet.history %></p>
-  </div>
-
-  <div class="card-show-pet-health col">
-    <h3>Health Stats</h3>
-    <p><%= @pet.gender == 'male' ? 'He is ' : 'She is ' %><%= @pet.vaccinated ? 'fully vaccinated' : 'not vaccinated yet' %> and <%= @pet.castrated ? '' : 'not' %> castrated</p>
+  <div class="card-show-pet-information">
+    <div class="pet-history">
+      <h3>History</h3>
+      <p><%= @pet.history %></p>
+    </div>
+    <div class="pet-health">
+     <h3>Health Stats</h3>
+     <p><%= @pet.gender == 'male' ? 'He is ' : 'She is ' %><%= @pet.vaccinated ? 'fully vaccinated' : 'not vaccinated yet' %> and <%= @pet.castrated ? '' : 'not' %> castrated</p>
+    </div>
   </div>
 </div>
 
