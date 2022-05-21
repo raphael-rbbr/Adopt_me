@@ -43,8 +43,30 @@
      <p><%= @pet.gender == 'male' ? 'He is ' : 'She is ' %><%= @pet.vaccinated ? 'fully vaccinated' : 'not vaccinated yet' %> and <%= @pet.castrated ? '' : 'not' %> castrated</p>
     </div>
   </div>
-</div>
+</div><br>
 
-<% @pet.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+
+    <% @pet.photos.each_with_index do |photo, index| %>
+      <% if index == 0 %>
+        <div class="carousel-item active">
+      <% else %>
+        <div class="carousel-item">
+      <% end %>
+        <div class="d-block w-100">
+         <%= cl_image_tag photo.key, height: 500, width: 1000, crop: :fill %>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
