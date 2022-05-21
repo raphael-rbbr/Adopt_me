@@ -12,6 +12,11 @@
         <% @my_pets.each do |pet| %>
           <div class="list-group-item">
             <%= render '/pets/pet', pet: pet %>
+            <div>
+             <% pet.adoptors.each do |adoptor| %>
+              <p>This pet was requested by <%= adoptor.first_name%></p>
+            <% end %>
+            </div>
           </div>
         <% end %>
       </div>

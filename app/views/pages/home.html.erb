@@ -1,5 +1,5 @@
 </div>
-<div class="banner-wrapper mb-4">
+<div class="banner-wrapper mb-1">
   <div class="banner">
     <div class="banner-container">
       <h1>Adopt.Me</h1>
@@ -8,8 +8,50 @@
   </div>
 </div>
 
+<div class="container">
+
+  <div class="row justify-content-center justify-content-md-start">
+    <div class="col-lg-4 col-md-6 col-xs-12 col-sm-10">
+      <div class="services-item text-center">
+        <div class="icon">
+          <i class="bi bi-heart-fill"></i>
+        </div>
+        <h4>Care</h4>
+        <p>With a few clicks of your mouse, you can bring home a new friend.
+        </p>
+      </div>
+    </div>
+
+
+    <div class="col-lg-4 col-md-6 col-xs-12 col-sm-10">
+      <div class="services-item text-center">
+        <div class="icon">
+          <i class="bi bi-people-fill"></i>
+        </div>
+        <h4>Organization</h4>
+        <p>We empower animal welfare organizations to maximize their life saving potential with powerful technology that will boost your ability to save more by doing less.
+        </p>
+      </div>
+    </div>
+
+
+    <div class="col-lg-4 col-md-6 col-xs-12 col-sm-10">
+      <div class="services-item text-center">
+        <div class="icon">
+          <i class="bi bi-wifi"></i>
+        </div>
+        <h4>Connection</h4>
+        <p>With technology, no pet is beyond our reach.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <div class="search_input text-center mb-4">
-  <div class="search_box">
+  <div class="search-box">
+    <h4>Search a location near you!</h4>
     <%= form_tag(pets_path, method: "get") do %>
     <%= text_field_tag :query, nil, placeholder: "Type a Location...", class: "form-control mb-4" %>
     <%= submit_tag "Search",

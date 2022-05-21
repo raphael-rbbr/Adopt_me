@@ -28,29 +28,29 @@ addresses = [
   "Rua da Glória, 250"
 ]
 
-User.create(email: "nicholas@gmail.com",
-            password: "123456",
-            first_name: "Nicholas",
-            last_name: "Cage",
-            zip_code: "22071-055",
-            house_number: "496",
-            profile: "I'm #{rand(18..90)} years old, my job is #{Faker::Job.title} and I love #{Faker::Hobby.activity}")
+user = User.create!(email: "nicholas@gmail.com",
+                    password: "123456",
+                    first_name: "Nicholas",
+                    last_name: "Cage",
+                    zip_code: "22071-055",
+                    house_number: "496",
+                    profile: "I'm #{rand(18..90)} years old, my job is #{Faker::Job.title} and I love #{Faker::Hobby.activity}")
+puts "User test created: #{User.last.email}, password 123456"
+file = URI.open('https://images.unsplash.com/flagged/photo-1595514191830-3e96a518989b?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687')
+user.profile_photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
 
-file = URI.open('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXT7i2n52TPAZJiV0n08h6D3CWLIPsvWuVuQ&usqp=CAU')
-User.last.profile_photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
-
-
-10.times do |i|
-  User.create(email: Faker::Internet.email,
-              password: "123456",
-              first_name: Faker::Name.first_name,
-              last_name: Faker::Name.last_name,
-              zip_code: "#{rand(20_000..28_999)}-#{rand(0..999).to_s.rjust(3, '0')}}",
-              house_number: rand(1..1000),
-              profile: "I'm #{rand(18..90)} years old, my job is #{Faker::Job.title} and I love #{Faker::Hobby.activity}")
+9.times do |i|
+  User.create!(email: Faker::Internet.email,
+               password: "123456",
+               first_name: Faker::Name.first_name,
+               last_name: Faker::Name.last_name,
+               zip_code: "#{rand(20_000..28_999)}-#{rand(0..999).to_s.rjust(3, '0')}}",
+               house_number: rand(1..1000),
+               profile: "I'm #{rand(18..90)} years old, my job is #{Faker::Job.title} and I love #{Faker::Hobby.activity}")
   users << User.last
   puts "user #{User.last.id} created"
-  Pet.create( name: Faker::Creature::Dog.name,
+
+  Pet.create!(name: Faker::Creature::Dog.name,
               species: ['dog', 'cat', 'bird'].sample,
               vaccinated: [true, false].sample,
               description: "It's a lovely animal with extremely friendly attitude, loves children and it is often very quiet",
@@ -62,7 +62,6 @@ User.last.profile_photo.attach(io: file, filename: 'user.png', content_type: 'im
               address: addresses.sample,
               castrated: [true, false].sample)
   file = URI.open(Unsplash::Photo.search(Pet.last.species)[i].urls.regular)
-  # file = URI.open('https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZG9nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60')
   Pet.last.photos.attach(io: file, filename: 'pet.png', content_type: 'image/png')
   pets << Pet.last
   puts "pet #{Pet.last.id} created"

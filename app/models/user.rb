@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, presence: true
   validates :zip_code, presence: true
-  validates :email, presence: true, format: { with: /"^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$"/, message: "enter a valid email"}
+  validates :email, presence: true, format: { with: /.+@.+\..+/, message: "enter a valid email"}
   validates :password, presence: true, length: { minimum: 6 }
   validates :profile, presence: true, length: { minimum: 6 }
 end
